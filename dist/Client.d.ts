@@ -37,6 +37,8 @@ import { BaasPixDictClaimParams, BaasPixDictClaimResponse } from './resources/ba
 import { BaasPixDictCancelClaimParams, BaasPixDictCancelClaimResponse } from './resources/baas/baas-pix-dict-cancel-claim/baas-pix-dict-cancel-claim.resource';
 import { BaasTransactionCreateParams } from './resources/baas-transaction-create/baas-transaction-create';
 import { BaasGetPixStatusParams } from './resources/baas/baas-get-pix-status/baas-get-pix-status.resource';
+import { BaasBillPaymentParams, BaasBillPaymentResponse } from './resources/baas-bill-payment/baas-bill-payment';
+import { BaasGetBalanceParams, BaasGetBalanceResponse } from './resources/baas-get-balance/baas-get-balance';
 export declare class Client {
     static createAuthToken(): Promise<AuthDto>;
     static PixInitiateTransactionUsingKey(token: string, params: PixInitiateTransactionUsingKeyParams): Promise<any>;
@@ -77,4 +79,6 @@ export declare class Client {
     static BaasPixDictlaim(token: string, params: BaasPixDictClaimParams): Promise<AxiosResponse<BaasPixDictClaimResponse, any>>;
     static BaasTransactionCreate(token: string, params: BaasTransactionCreateParams): Promise<any>;
     static BaasGetPixStatus(token: string, params: BaasGetPixStatusParams): Promise<any>;
+    static BaasBillPayment(token: string, params: BaasBillPaymentParams): Promise<AxiosResponse<BaasBillPaymentResponse, any>>;
+    static BaasGetBalance(token: string, params: BaasGetBalanceParams): Promise<AxiosResponse<BaasGetBalanceResponse, any>>;
 }

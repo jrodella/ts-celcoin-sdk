@@ -41,6 +41,9 @@ const baas_pix_dict_claim_resource_1 = require("./resources/baas/baas-pix-dict-c
 const baas_pix_dict_cancel_claim_resource_1 = require("./resources/baas/baas-pix-dict-cancel-claim/baas-pix-dict-cancel-claim.resource");
 const baas_transaction_create_1 = require("./resources/baas-transaction-create/baas-transaction-create");
 const baas_get_pix_status_resource_1 = require("./resources/baas/baas-get-pix-status/baas-get-pix-status.resource");
+const baas_bill_payment_1 = require("./resources/baas-bill-payment/baas-bill-payment");
+const baas_get_balance_1 = require("./resources/baas-get-balance/baas-get-balance");
+
 class Client {
     static async createAuthToken() {
         const authResource = await auth_resource_1.AuthResource.getToken();
@@ -191,6 +194,15 @@ class Client {
     static async BaasGetPixStatus(token, params) {
         const baasGetPixStatusResource = await baas_get_pix_status_resource_1.BaasGetPixStatusResource.initiate(token, params);
         return baasGetPixStatusResource;
+    }
+    
+    static async BaasBillPayment(token, params) {
+        const baasBillPaymentResource = await baas_bill_payment_1.BaasBillPaymentResource.initiate(token, params);
+        return baasBillPaymentResource;
+    }
+    static async BaasGetBalance(token, params) {
+        const baasGetBalanceResource = await baas_get_balance_1.BaasGetBalanceResource.initiate(token, params);
+        return baasGetBalanceResource;
     }
 }
 exports.Client = Client;
