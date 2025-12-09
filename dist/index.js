@@ -12,4 +12,28 @@ const Client_1 = require("./Client");
 Object.defineProperty(exports, "Client", { enumerable: true, get: function () { return Client_1.Client; } });
 const auth_dto_1 = require("./resources/auth/auth.dto");
 Object.defineProperty(exports, "AuthDto", { enumerable: true, get: function () { return auth_dto_1.AuthDto; } });
+const baas_billet = require("./resources/baas-billet/baas-billet.resource");
+Object.keys(baas_billet).forEach(key => {
+    if (key !== "default" && !exports.hasOwnProperty(key)) {
+        Object.defineProperty(exports, key, { enumerable: true, get: function() { return baas_billet[key]; } });
+    }
+});
+const baas_account = require("./resources/baas-account-manager/baas-account-manager.resource");
+Object.keys(baas_account).forEach(key => {
+    if (key !== "default" && !exports.hasOwnProperty(key)) {
+        Object.defineProperty(exports, key, { enumerable: true, get: function() { return baas_account[key]; } });
+    }
+});
+const baas_wallet = require("./resources/baas-wallet-transactions/baas-wallet-transactions.resource");
+Object.keys(baas_wallet).forEach(key => {
+    if (key !== "default" && !exports.hasOwnProperty(key)) {
+        Object.defineProperty(exports, key, { enumerable: true, get: function() { return baas_wallet[key]; } });
+    }
+});
+const baas_webhooks = require("./resources/baas-webhooks/baas-webhooks.resource");
+Object.keys(baas_webhooks).forEach(key => {
+    if (key !== "default" && !exports.hasOwnProperty(key)) {
+        Object.defineProperty(exports, key, { enumerable: true, get: function() { return baas_webhooks[key]; } });
+    }
+});
 //# sourceMappingURL=index.js.map

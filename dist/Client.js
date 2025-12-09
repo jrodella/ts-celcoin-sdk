@@ -43,6 +43,10 @@ const baas_transaction_create_1 = require("./resources/baas-transaction-create/b
 const baas_get_pix_status_resource_1 = require("./resources/baas/baas-get-pix-status/baas-get-pix-status.resource");
 const baas_bill_payment_1 = require("./resources/baas-bill-payment/baas-bill-payment");
 const baas_get_balance_1 = require("./resources/baas-get-balance/baas-get-balance");
+const baas_billet_resource_1 = require("./resources/baas-billet/baas-billet.resource");
+const baas_account_manager_resource_1 = require("./resources/baas-account-manager/baas-account-manager.resource");
+const baas_wallet_transactions_resource_1 = require("./resources/baas-wallet-transactions/baas-wallet-transactions.resource");
+const baas_webhooks_resource_1 = require("./resources/baas-webhooks/baas-webhooks.resource");
 
 class Client {
     static async createAuthToken() {
@@ -195,7 +199,6 @@ class Client {
         const baasGetPixStatusResource = await baas_get_pix_status_resource_1.BaasGetPixStatusResource.initiate(token, params);
         return baasGetPixStatusResource;
     }
-    
     static async BaasBillPayment(token, params) {
         const baasBillPaymentResource = await baas_bill_payment_1.BaasBillPaymentResource.initiate(token, params);
         return baasBillPaymentResource;
@@ -203,6 +206,45 @@ class Client {
     static async BaasGetBalance(token, params) {
         const baasGetBalanceResource = await baas_get_balance_1.BaasGetBalanceResource.initiate(token, params);
         return baasGetBalanceResource;
+    }
+    static async BaasBilletCreate(token, params) {
+        return await baas_billet_resource_1.BaasBilletResource.create(token, params);
+    }
+    static async BaasBilletGet(token, params) {
+        return await baas_billet_resource_1.BaasBilletResource.get(token, params);
+    }
+    static async BaasBilletCancel(token, transactionId) {
+        return await baas_billet_resource_1.BaasBilletResource.cancel(token, transactionId);
+    }
+    static async BaasBilletPdf(token, transactionId) {
+        return await baas_billet_resource_1.BaasBilletResource.pdf(token, transactionId);
+    }
+    static async BaasAccountUpdateNaturalPerson(token, account, documentNumber, data) {
+        return await baas_account_manager_resource_1.BaasAccountManagerResource.updateNaturalPerson(token, account, documentNumber, data);
+    }
+    static async BaasAccountUpdateBusiness(token, account, documentNumber, data) {
+        return await baas_account_manager_resource_1.BaasAccountManagerResource.updateBusiness(token, account, documentNumber, data);
+    }
+    static async BaasAccountGetIncomeReport(token, account, calendarYear) {
+        return await baas_account_manager_resource_1.BaasAccountManagerResource.getIncomeReport(token, account, calendarYear);
+    }
+    static async BaasWalletCreateRelease(token, account, data) {
+        return await baas_wallet_transactions_resource_1.BaasWalletTransactionsResource.createRelease(token, account, data);
+    }
+    static async BaasWebhooksRegister(token, params) {
+        return await baas_webhooks_resource_1.BaasWebhooksResource.register(token, params);
+    }
+    static async BaasWebhooksList(token, entity, active) {
+        return await baas_webhooks_resource_1.BaasWebhooksResource.list(token, entity, active);
+    }
+    static async BaasWebhooksEdit(token, entity, params) {
+        return await baas_webhooks_resource_1.BaasWebhooksResource.edit(token, entity, params);
+    }
+    static async BaasWebhooksRemove(token, entity) {
+        return await baas_webhooks_resource_1.BaasWebhooksResource.remove(token, entity);
+    }
+    static async BaasWebhooksListEntities(token) {
+        return await baas_webhooks_resource_1.BaasWebhooksResource.listEntities(token);
     }
 }
 exports.Client = Client;
