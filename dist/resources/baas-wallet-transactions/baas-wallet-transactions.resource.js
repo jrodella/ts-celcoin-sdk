@@ -27,7 +27,7 @@ class BaasWalletTransactionsResource {
         const url = `${this.resourceUrl}/wallet/entry/${account}`;
         const config = this.getConfig(token, 'POST', url, data);
         return (0, axios_1.default)(config)
-            .then((response) => response.data)
+            .then((response) => response)
             .catch((error) => {
                 console.log(error);
                 throw error;

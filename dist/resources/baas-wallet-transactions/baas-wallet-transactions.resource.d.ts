@@ -18,5 +18,5 @@ export interface BaasWalletTransactionResponse {
 
 export declare class BaasWalletTransactionsResource {
     protected static resourceUrl: string;
-    static createRelease(token: string, account: string, data: BaasAccountReleaseParams): Promise<BaasWalletTransactionResponse>;
+    static createRelease(token: string, account: string, data: BaasAccountReleaseParams): Promise<any>;
 }

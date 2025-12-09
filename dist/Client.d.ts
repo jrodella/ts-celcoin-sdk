@@ -93,7 +93,7 @@ export declare class Client {
     static BaasAccountUpdateNaturalPerson(token: string, account: string, documentNumber: string, data: BaasUpdateNaturalPersonParams): Promise<BaasAccountResponse>;
     static BaasAccountUpdateBusiness(token: string, account: string, documentNumber: string, data: BaasUpdateBusinessParams): Promise<BaasAccountResponse>;
     static BaasAccountGetIncomeReport(token: string, account: string, calendarYear: string): Promise<any>;
-    static BaasWalletCreateRelease(token: string, account: string, data: BaasAccountReleaseParams): Promise<BaasWalletTransactionResponse>;
+    static BaasWalletCreateRelease(token: string, account: string, data: import("./resources/baas-wallet-transactions/baas-wallet-transactions.resource").BaasAccountReleaseParams): Promise<any>;
     static BaasWebhooksRegister(token: string, params: BaasWebhookRegisterParams): Promise<BaasWebhookResponse>;
     static BaasWebhooksList(token: string, entity?: BaasWebhookEntity, active?: boolean): Promise<BaasWebhookResponse>;
     static BaasWebhooksEdit(token: string, entity: BaasWebhookEntity, params: BaasWebhookEditParams): Promise<BaasWebhookResponse>;
