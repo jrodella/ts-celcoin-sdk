@@ -17,6 +17,7 @@ class BaasBillPaymentResource {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json'
             },
+            // Concatena a URL base configurada + o endpoint do recurso (BaaS) + sufixo específico
             url: Configuration_1.Configuration.url + this.resourceUrl + urlSuffix,
             data: data,
             params: params,
@@ -24,6 +25,7 @@ class BaasBillPaymentResource {
         };
     }
 
+    // Pagamento (BaaS) -> /baas/v2/billpayment
     static async initiate(token, params) {
         const config = this.getConfig(token, 'POST', '', null, params);
         return (0, axios_1.default)(config)
@@ -36,6 +38,7 @@ class BaasBillPaymentResource {
             });
     }
 
+    // Status (BaaS) -> /baas/v2/billpayment/status
     static async status(token, params) {
         const config = this.getConfig(token, 'GET', '/status', params, null);
         return (0, axios_1.default)(config)
@@ -48,8 +51,9 @@ class BaasBillPaymentResource {
             });
     }
 
+    // Consulta (Legado / v5) -> /v5/transactions/billpayments/authorize
     static async authorize(token, params) {
-        // Configuração manual para sobrescrever a URL base (rota legada/padrão)
+        // NÃO usamos o this.getConfig aqui para evitar a concatenação com /baas/v2/billpayment
         const config = {
             method: 'POST',
             headers: {
@@ -57,7 +61,7 @@ class BaasBillPaymentResource {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json'
             },
-            // URL específica para consulta de boleto fora do padrão BaaS
+            // URL Absoluta para o endpoint legado
             url: Configuration_1.Configuration.url + '/v5/transactions/billpayments/authorize',
             data: params,
             httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
