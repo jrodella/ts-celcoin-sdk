@@ -39,10 +39,7 @@ import { BaasTransactionCreateParams } from './resources/baas-transaction-create
 import { BaasGetPixStatusParams } from './resources/baas/baas-get-pix-status/baas-get-pix-status.resource';
 import { BaasBillPaymentParams, BaasBillPaymentResponse } from './resources/baas-bill-payment/baas-bill-payment';
 import { BaasGetBalanceParams, BaasGetBalanceResponse } from './resources/baas-get-balance/baas-get-balance';
-import { BaasBilletCreateParams, BaasBilletGetParams, BaasBilletResponse } from './resources/baas-billet/baas-billet.resource';
-import { BaasUpdateNaturalPersonParams, BaasUpdateBusinessParams, BaasAccountResponse } from './resources/baas-account-manager/baas-account-manager.resource';
-import { BaasAccountReleaseParams, BaasWalletTransactionResponse } from './resources/baas-wallet-transactions/baas-wallet-transactions.resource';
-import { BaasWebhookRegisterParams, BaasWebhookEntity, BaasWebhookResponse, BaasWebhookEditParams } from './resources/baas-webhooks/baas-webhooks.resource';
+import { BaasBillPaymentAuthorizeParams, BaasBillPaymentAuthorizeResponse } from './resources/baas-bill-payment/baas-bill-payment-authorize';
 
 export declare class Client {
     static createAuthToken(): Promise<AuthDto>;
@@ -89,6 +86,7 @@ export declare class Client {
     static BaasBilletCreate(token: string, params: BaasBilletCreateParams): Promise<BaasBilletResponse>;
     static BaasBilletGet(token: string, params: BaasBilletGetParams): Promise<BaasBilletResponse>;
     static BaasBilletCancel(token: string, transactionId: string): Promise<any>;
+    static BaasBillPaymentAuthorize(token: string, params: BaasBillPaymentAuthorizeParams): Promise<AxiosResponse<BaasBillPaymentAuthorizeResponse, any>>;
     static BaasBilletPdf(token: string, transactionId: string): Promise<any>;
     static BaasAccountUpdateNaturalPerson(token: string, account: string, documentNumber: string, data: BaasUpdateNaturalPersonParams): Promise<BaasAccountResponse>;
     static BaasAccountUpdateBusiness(token: string, account: string, documentNumber: string, data: BaasUpdateBusinessParams): Promise<BaasAccountResponse>;
