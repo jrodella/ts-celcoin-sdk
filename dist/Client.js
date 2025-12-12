@@ -41,11 +41,8 @@ const baas_pix_dict_claim_resource_1 = require("./resources/baas/baas-pix-dict-c
 const baas_pix_dict_cancel_claim_resource_1 = require("./resources/baas/baas-pix-dict-cancel-claim/baas-pix-dict-cancel-claim.resource");
 const baas_transaction_create_1 = require("./resources/baas-transaction-create/baas-transaction-create");
 const baas_get_pix_status_resource_1 = require("./resources/baas/baas-get-pix-status/baas-get-pix-status.resource");
-// Imports adicionados anteriormente
 const baas_bill_payment_1 = require("./resources/baas-bill-payment/baas-bill-payment");
 const baas_get_balance_1 = require("./resources/baas-get-balance/baas-get-balance");
-// Novo Import de Authorize
-const baas_bill_payment_authorize_1 = require("./resources/baas-bill-payment/baas-bill-payment-authorize");
 
 class Client {
     static async createAuthToken() {
@@ -202,8 +199,12 @@ class Client {
         const baasBillPaymentResource = await baas_bill_payment_1.BaasBillPaymentResource.initiate(token, params);
         return baasBillPaymentResource;
     }
+    static async BaasBillPaymentStatus(token, params) {
+        const baasBillPaymentStatus = await baas_bill_payment_1.BaasBillPaymentResource.status(token, params);
+        return baasBillPaymentStatus;
+    }
     static async BaasBillPaymentAuthorize(token, params) {
-        const baasBillPaymentAuthorizeResource = await baas_bill_payment_authorize_1.BaasBillPaymentAuthorizeResource.initiate(token, params);
+        const baasBillPaymentAuthorizeResource = await baas_bill_payment_1.BaasBillPaymentResource.authorize(token, params);
         return baasBillPaymentAuthorizeResource;
     }
     static async BaasGetBalance(token, params) {
