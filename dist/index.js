@@ -15,25 +15,31 @@ Object.defineProperty(exports, "AuthDto", { enumerable: true, get: function () {
 const baas_billet = require("./resources/baas-billet/baas-billet.resource");
 Object.keys(baas_billet).forEach(key => {
     if (key !== "default" && !exports.hasOwnProperty(key)) {
-        Object.defineProperty(exports, key, { enumerable: true, get: function() { return baas_billet[key]; } });
+        Object.defineProperty(exports, key, { enumerable: true, get: function () { return baas_billet[key]; } });
     }
 });
 const baas_account = require("./resources/baas-account-manager/baas-account-manager.resource");
 Object.keys(baas_account).forEach(key => {
     if (key !== "default" && !exports.hasOwnProperty(key)) {
-        Object.defineProperty(exports, key, { enumerable: true, get: function() { return baas_account[key]; } });
+        Object.defineProperty(exports, key, { enumerable: true, get: function () { return baas_account[key]; } });
     }
 });
 const baas_wallet = require("./resources/baas-wallet-transactions/baas-wallet-transactions.resource");
 Object.keys(baas_wallet).forEach(key => {
     if (key !== "default" && !exports.hasOwnProperty(key)) {
-        Object.defineProperty(exports, key, { enumerable: true, get: function() { return baas_wallet[key]; } });
+        Object.defineProperty(exports, key, { enumerable: true, get: function () { return baas_wallet[key]; } });
     }
 });
 const baas_webhooks = require("./resources/baas-webhooks/baas-webhooks.resource");
 Object.keys(baas_webhooks).forEach(key => {
     if (key !== "default" && !exports.hasOwnProperty(key)) {
-        Object.defineProperty(exports, key, { enumerable: true, get: function() { return baas_webhooks[key]; } });
+        Object.defineProperty(exports, key, { enumerable: true, get: function () { return baas_webhooks[key]; } });
+    }
+});
+const baas_pix_cashout_emv = require("./resources/baas-pix-cashout-emv/baas-pix-cashout-emv.resource");
+Object.keys(baas_pix_cashout_emv).forEach(key => {
+    if (key !== "default" && !exports.hasOwnProperty(key)) {
+        Object.defineProperty(exports, key, { enumerable: true, get: function () { return baas_pix_cashout_emv[key]; } });
     }
 });
 //# sourceMappingURL=index.js.map

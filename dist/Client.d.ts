@@ -40,6 +40,7 @@ import { BaasGetPixStatusParams } from './resources/baas/baas-get-pix-status/baa
 import { BaasBillPaymentParams, BaasBillPaymentResponse } from './resources/baas-bill-payment/baas-bill-payment';
 import { BaasGetBalanceParams, BaasGetBalanceResponse } from './resources/baas-get-balance/baas-get-balance';
 import { BaasBillPaymentAuthorizeParams, BaasBillPaymentAuthorizeResponse } from './resources/baas-bill-payment/baas-bill-payment-authorize';
+import { BaasPixCashoutEmvParams, BaasPixCashoutEmvResponse } from './resources/baas-pix-cashout-emv/baas-pix-cashout-emv.resource';
 
 export declare class Client {
     static createAuthToken(): Promise<AuthDto>;
@@ -97,4 +98,5 @@ export declare class Client {
     static BaasWebhooksEdit(token: string, entity: BaasWebhookEntity, params: BaasWebhookEditParams): Promise<BaasWebhookResponse>;
     static BaasWebhooksRemove(token: string, entity: BaasWebhookEntity): Promise<any>;
     static BaasWebhooksListEntities(token: string): Promise<any>;
+    static BaasPixCashoutEmv(token: string, params: BaasPixCashoutEmvParams): Promise<any>;
 }

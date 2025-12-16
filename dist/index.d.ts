@@ -8,6 +8,7 @@ export * from "./resources/baas-billet/baas-billet.resource";
 export * from "./resources/baas-account-manager/baas-account-manager.resource";
 export * from "./resources/baas-wallet-transactions/baas-wallet-transactions.resource";
 export * from "./resources/baas-webhooks/baas-webhooks.resource";
+export * from "./resources/baas-pix-cashout-emv/baas-pix-cashout-emv.resource";
 export { _Configuration as Configuration, _ConfigurationData as ConfigurationData };
 export { _Client as Client };
 export { _AuthDto as AuthDto };

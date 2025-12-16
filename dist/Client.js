@@ -43,6 +43,7 @@ const baas_transaction_create_1 = require("./resources/baas-transaction-create/b
 const baas_get_pix_status_resource_1 = require("./resources/baas/baas-get-pix-status/baas-get-pix-status.resource");
 const baas_bill_payment_1 = require("./resources/baas-bill-payment/baas-bill-payment");
 const baas_get_balance_1 = require("./resources/baas-get-balance/baas-get-balance");
+const baas_pix_cashout_emv_resource_1 = require("./resources/baas-pix-cashout-emv/baas-pix-cashout-emv.resource");
 
 class Client {
     static async createAuthToken() {
@@ -249,6 +250,9 @@ class Client {
     }
     static async BaasWebhooksListEntities(token) {
         return await baas_webhooks_resource_1.BaasWebhooksResource.listEntities(token);
+    }
+    static async BaasPixCashoutEmv(token, params) {
+        return await baas_pix_cashout_emv_resource_1.BaasPixCashoutEmvResource.create(token, params);
     }
 }
 exports.Client = Client;
