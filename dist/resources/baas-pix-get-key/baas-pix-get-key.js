@@ -9,6 +9,14 @@ const Configuration_1 = require("../../Configuration");
 const CreateCustomAgent_1 = require("../../helpers/CreateCustomAgent");
 class BaasPixGetKeyResource {
     static async initiate(token, params) {
+        const data = {
+            key: params.key
+        };
+
+        if (params.payerId) {
+            data.payerId = params.payerId;
+        }
+
         const config = {
             method: 'POST',
             headers: {
@@ -17,16 +25,13 @@ class BaasPixGetKeyResource {
                 'Content-Type': 'application/json'
             },
             url: Configuration_1.Configuration.url + this.resourceUrl,
-            data: {
-                payerId: params.payerId,
-                key: params.key
-            },
+            data: data,
             httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
         return (0, axios_1.default)(config).then((response) => {
             return response;
         }).catch((error) => {
-            console.log("ERROR: ", error.response.data);
+            console.log("ERROR: ", error.response ? error.response.data : error.message);
             throw error;
         });
     }

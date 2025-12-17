@@ -1,7 +1,7 @@
 export interface BaasPixGetKeyResponse {
 }
 export interface BaasPixGetKeyParams {
-    payerId: string;
+    payerId?: string;
     key: string;
 }
 export declare class BaasPixGetKeyResource {
