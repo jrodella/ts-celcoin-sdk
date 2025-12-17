@@ -24,18 +24,21 @@ class BaasPixCashoutEmvResource {
     }
 
     static async create(token, params) {
-        // Endpoint de pagamento BaaS
         const url = `/baas-wallet-transactions-webservice/v1/pix/payment`;
 
-        // Montagem do payload específico para pagamento via EMV no BaaS
+        // CORREÇÃO: Adicionando creditParty e outros campos opcionais
         const data = {
             clientCode: params.clientCode,
             amount: params.amount,
             debitParty: {
                 account: params.account
             },
-            emv: params.emv, // O código Pix Copia e Cola
-            description: params.description
+            creditParty: params.creditParty, // Novo campo obrigatório
+            emv: params.emv,
+            description: params.description,
+            transactionType: params.transactionType,
+            initiationType: params.initiationType,
+            urgency: params.urgency
         };
 
         const config = this.getConfig(token, 'POST', url, data);
