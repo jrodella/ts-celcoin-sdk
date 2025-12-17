@@ -99,4 +99,5 @@ export declare class Client {
     static BaasWebhooksRemove(token: string, entity: BaasWebhookEntity): Promise<any>;
     static BaasWebhooksListEntities(token: string): Promise<any>;
     static BaasPixCashoutEmv(token: string, params: BaasPixCashoutEmvParams): Promise<any>;
+    static BaasPixExternalKey(token: string, account: string, key: string): Promise<any>;
 }
