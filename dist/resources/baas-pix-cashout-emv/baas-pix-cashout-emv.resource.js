@@ -1,7 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault = (this && this.__importDefault) ||
+    function (mod) {
+        return (mod && mod.__esModule) ? mod : { "default": mod };
+    };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaasPixCashoutEmvResource = void 0;
 const axios_1 = __importDefault(require("axios"));
@@ -24,26 +25,38 @@ class BaasPixCashoutEmvResource {
     }
 
     static async create(token, params) {
-        const url = `/baas-wallet-transactions-webservice/v1/pix/payment`;
-
-        // CORREÇÃO: Adicionando creditParty e outros campos opcionais
+        // CORREÇÃO: Mapeamento explícito dos campos novos e aninhados (creditParty/debitParty)
+        // para garantir que a estrutura complexa seja repassada corretamente ao endpoint.
         const data = {
-            clientCode: params.clientCode,
             amount: params.amount,
-            debitParty: {
-                account: params.account
-            },
-            creditParty: params.creditParty, // Novo campo obrigatório
-            emv: params.emv,
-            description: params.description,
-            transactionType: params.transactionType,
+            clientCode: params.clientCode,
+            transactionIdentification: params.transactionIdentification,
+            endToEndId: params.endToEndId,
             initiationType: params.initiationType,
-            urgency: params.urgency
+            paymentType: params.paymentType,
+            urgency: params.urgency,
+            transactionType: params.transactionType,
+
+            // Repassa os objetos estruturados
+            debitParty: params.debitParty,
+            creditParty: params.creditParty,
+
+            description: params.description,
+            remittanceInformation: params.remittanceInformation,
+
+            // Mantém compatibilidade caso o emv seja passado solto
+            emv: params.emv
         };
+
+        // Remove chaves undefined para limpar o payload
+        Object.keys(data).forEach(key => data[key] === undefined && delete data[key]);
+
+        // A rota base deve ser a do webservice de transações
+        const url = `/baas-wallet-transactions-webservice/v1/pix/payment`;
 
         const config = this.getConfig(token, 'POST', url, data);
         return (0, axios_1.default)(config)
-            .then((response) => response)
+            .then((response) => response) // Retorna response completo ou response.data dependendo da padronização do seu projeto
             .catch((error) => {
                 console.log(error);
                 throw error;
