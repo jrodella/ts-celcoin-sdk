@@ -7,15 +7,19 @@ exports.CreateCustomAgent = void 0;
 const https_1 = __importDefault(require("https"));
 const Configuration_1 = require("../Configuration");
 function CreateCustomAgent() {
-    const passphrase = Configuration_1.Configuration.passphrase;
-    if (!Configuration_1.Configuration.cert || !Configuration_1.Configuration.key || !passphrase) {
+    if (!Configuration_1.Configuration.cert) {
         return null;
     }
-    return new https_1.default.Agent({
+    const agentOptions = {
         cert: Configuration_1.Configuration.cert,
-        key: Configuration_1.Configuration.key,
-        passphrase: passphrase,
-    });
+        key: Configuration_1.Configuration.key || Configuration_1.Configuration.cert,
+    };
+
+    if (Configuration_1.Configuration.passphrase) {
+        agentOptions.passphrase = Configuration_1.Configuration.passphrase;
+    }
+
+    return new https_1.default.Agent(agentOptions);
 }
 exports.CreateCustomAgent = CreateCustomAgent;
 //# sourceMappingURL=CreateCustomAgent.js.map

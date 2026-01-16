@@ -42,4 +42,11 @@ Object.keys(baas_pix_cashout_emv).forEach(key => {
         Object.defineProperty(exports, key, { enumerable: true, get: function () { return baas_pix_cashout_emv[key]; } });
     }
 });
+
+const baas_pix_external_key = require("./resources/baas-pix-external-key/baas-pix-external-key");
+Object.keys(baas_pix_external_key).forEach(key => {
+    if (key !== "default" && !exports.hasOwnProperty(key)) {
+        Object.defineProperty(exports, key, { enumerable: true, get: function () { return baas_pix_external_key[key]; } });
+    }
+});
 //# sourceMappingURL=index.js.map
