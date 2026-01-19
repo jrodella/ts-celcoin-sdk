@@ -45,6 +45,7 @@ const baas_bill_payment_1 = require("./resources/baas-bill-payment/baas-bill-pay
 const baas_get_balance_1 = require("./resources/baas-get-balance/baas-get-balance");
 const baas_pix_cashout_emv_resource_1 = require("./resources/baas-pix-cashout-emv/baas-pix-cashout-emv.resource");
 const baas_pix_external_key_1 = require("./resources/baas-pix-external-key/baas-pix-external-key");
+const baas_billet_resource_1 = require("./resources/baas-billet/baas-billet.resource");
 
 class Client {
     static async createAuthToken() {
