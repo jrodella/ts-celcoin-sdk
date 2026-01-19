@@ -16,7 +16,7 @@ class BaasGePixKeysResource {
                 'Content-Type': 'application/json'
             },
             url: Configuration_1.Configuration.url + this.resourceUrl + `/${params.account}`,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
     }
     static async initiate(token, params) {

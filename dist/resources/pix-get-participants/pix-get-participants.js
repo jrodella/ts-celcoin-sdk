@@ -17,7 +17,7 @@ class PixGetParticipantsResource {
                 'Content-Type': 'application/json'
             },
             url: Configuration_1.Configuration.url + this.resourceUrl,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
         };
         return config;
     }
@@ -25,12 +25,12 @@ class PixGetParticipantsResource {
         const config = this.getConfig(token);
         return (0, axios_1.default)(config)
             .then((response) => {
-            return response;
-        })
+                return response;
+            })
             .catch((error) => {
-            console.log(error);
-            throw error;
-        });
+                console.log(error);
+                throw error;
+            });
     }
 }
 exports.PixGetParticipantsResource = PixGetParticipantsResource;

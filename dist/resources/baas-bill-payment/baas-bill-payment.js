@@ -21,7 +21,7 @@ class BaasBillPaymentResource {
             url: Configuration_1.Configuration.url + this.resourceUrl + urlSuffix,
             data: data,
             params: params,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
     }
 
@@ -64,7 +64,7 @@ class BaasBillPaymentResource {
             // URL Absoluta para o endpoint legado
             url: Configuration_1.Configuration.url + '/v5/transactions/billpayments/authorize',
             data: params,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
 
         return (0, axios_1.default)(config)

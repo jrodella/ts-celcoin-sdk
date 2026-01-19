@@ -17,19 +17,19 @@ class BaasConsultPixKeyResource {
                 'Content-Type': 'application/json'
             },
             url: Configuration_1.Configuration.url + this.resourceUrl + params.account,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
     }
     static async initiate(token, params) {
         const config = this.getConfig(token, params);
         return (0, axios_1.default)(config)
             .then((response) => {
-            return response;
-        })
+                return response;
+            })
             .catch((error) => {
-            console.log(error);
-            throw error;
-        });
+                console.log(error);
+                throw error;
+            });
     }
 }
 exports.BaasConsultPixKeyResource = BaasConsultPixKeyResource;

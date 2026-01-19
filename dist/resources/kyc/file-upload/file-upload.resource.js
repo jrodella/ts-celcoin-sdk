@@ -21,7 +21,7 @@ class FileUploadParamsResource {
             headers: Object.assign({ 'Authorization': `Bearer ${token}`, 'Content-Type': "multipart/form-data" }, formdata.getHeaders()),
             url: Configuration_1.Configuration.url + this.resourceUrl,
             data: formdata,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
         return config;
     }

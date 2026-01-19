@@ -20,7 +20,7 @@ class BaasPixCashoutEmvResource {
             },
             url: Configuration_1.Configuration.url + url,
             data: data,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
     }
 

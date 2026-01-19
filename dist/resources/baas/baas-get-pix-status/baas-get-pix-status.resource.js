@@ -17,7 +17,7 @@ class BaasGetPixStatusResource {
             },
             url: Configuration_1.Configuration.url + this.resourceUrl,
             params,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
     }
     static async initiate(token, params) {

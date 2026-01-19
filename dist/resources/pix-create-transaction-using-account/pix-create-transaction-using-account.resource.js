@@ -30,7 +30,7 @@ class PixCreateTransactionUsingAccountResource {
             },
             url: Configuration_1.Configuration.url + this.resourceUrl,
             data: data,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
         };
         return config;
     }
@@ -38,12 +38,12 @@ class PixCreateTransactionUsingAccountResource {
         const config = this.getConfig(token, params);
         return (0, axios_1.default)(config)
             .then((response) => {
-            return response;
-        })
+                return response;
+            })
             .catch((error) => {
-            console.log(error);
-            throw error;
-        });
+                console.log(error);
+                throw error;
+            });
     }
 }
 exports.PixCreateTransactionUsingAccountResource = PixCreateTransactionUsingAccountResource;

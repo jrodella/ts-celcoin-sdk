@@ -35,19 +35,19 @@ class BaasCreateBusinessAccountResource {
                     latitude: (_d = params.businessAddress) === null || _d === void 0 ? void 0 : _d.latitude
                 }
             },
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
     }
     static async initiate(token, params) {
         const config = this.getConfig(token, params);
         return (0, axios_1.default)(config)
             .then((response) => {
-            return response;
-        })
+                return response;
+            })
             .catch((error) => {
-            console.log(error.response.data.error);
-            throw error;
-        });
+                console.log(error.response.data.error);
+                throw error;
+            });
     }
 }
 exports.BaasCreateBusinessAccountResource = BaasCreateBusinessAccountResource;

@@ -19,7 +19,7 @@ class BaasDeletePixKeyResource {
             data: {
                 account: params.account
             },
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
     }
     static async initiate(token, params) {

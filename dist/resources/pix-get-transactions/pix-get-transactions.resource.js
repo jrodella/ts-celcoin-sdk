@@ -14,7 +14,7 @@ class PixGetTransactionsResource {
             headers: { 'Authorization': 'Bearer ' + token },
             url: Configuration_1.Configuration.url + this.resourceUrl,
             params,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
         };
         return (0, axios_1.default)(config).then((response) => {
             return response;

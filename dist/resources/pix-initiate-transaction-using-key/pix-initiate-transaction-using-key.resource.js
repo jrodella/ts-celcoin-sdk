@@ -18,7 +18,7 @@ class PixInitiateTransactionUsingKeyResource {
             method: 'POST',
             headers: { 'Authorization': 'Bearer ' + token },
             url: Configuration_1.Configuration.url + this.resourceUrl,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
             data
         };
         return config;
@@ -27,12 +27,12 @@ class PixInitiateTransactionUsingKeyResource {
         const config = this.getConfig(token, params);
         return (0, axios_1.default)(config)
             .then((response) => {
-            return response;
-        })
+                return response;
+            })
             .catch((error) => {
-            console.log(error);
-            throw error;
-        });
+                console.log(error);
+                throw error;
+            });
     }
 }
 exports.PixInitiateTransactionUsingKeyResource = PixInitiateTransactionUsingKeyResource;

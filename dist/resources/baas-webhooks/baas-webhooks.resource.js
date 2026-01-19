@@ -61,7 +61,7 @@ class BaasWebhooksResource {
             url: Configuration_1.Configuration.url + url,
             data: data,
             params: params,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
     }
 

@@ -14,7 +14,7 @@ class PixCreateLocationResource {
             headers: { 'Authorization': 'Bearer ' + token },
             url: Configuration_1.Configuration.url + this.resourceUrl,
             data: data,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
         };
         return config;
     }
@@ -22,11 +22,11 @@ class PixCreateLocationResource {
         const config = this.getConfig(token, params);
         return (0, axios_1.default)(config)
             .then((response) => {
-            return response;
-        })
+                return response;
+            })
             .catch((error) => {
-            throw error;
-        });
+                throw error;
+            });
     }
 }
 exports.PixCreateLocationResource = PixCreateLocationResource;

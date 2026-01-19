@@ -30,7 +30,7 @@ class BaasPixCreateKeyResource {
                 keyType: params.keyType,
                 key: params.key
             },
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
         };
         return config;
     }

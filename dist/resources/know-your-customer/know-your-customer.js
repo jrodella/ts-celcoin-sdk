@@ -22,7 +22,7 @@ class KnowYourCustomerResource {
             url: Configuration_1.Configuration.url + this.resourceUrl,
             headers: Object.assign({ 'Content-Type': 'multipart/form-data', 'Authorization': 'Bearer ' + token }, data.getHeaders()),
             data: data,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
         return config;
     }
@@ -30,12 +30,12 @@ class KnowYourCustomerResource {
         const config = this.getConfig(token, params);
         return (0, axios_1.default)(config)
             .then((response) => {
-            return response;
-        })
+                return response;
+            })
             .catch((error) => {
-            console.log(error.response);
-            throw error;
-        });
+                console.log(error.response);
+                throw error;
+            });
     }
 }
 exports.KnowYourCustomerResource = KnowYourCustomerResource;

@@ -23,7 +23,7 @@ class BaasPixExternalKeyResource {
                 'Content-Type': 'application/json'
             },
             url: url,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)()
         };
 
         return (0, axios_1.default)(config).then((response) => {

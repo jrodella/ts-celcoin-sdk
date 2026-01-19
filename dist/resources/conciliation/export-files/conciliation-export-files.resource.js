@@ -20,7 +20,7 @@ class ConciliationExportFilesResource {
                 'Authorization': 'Bearer ' + token,
             },
             url: url,
-            httpAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
+            httpsAgent: (0, CreateCustomAgent_1.CreateCustomAgent)(),
         };
         return config;
     }
@@ -28,11 +28,11 @@ class ConciliationExportFilesResource {
         const config = this.getConfig(token, params);
         return (0, axios_1.default)(config)
             .then((response) => {
-            return response;
-        })
+                return response;
+            })
             .catch((error) => {
-            throw error;
-        });
+                throw error;
+            });
     }
 }
 exports.ConciliationExportFilesResource = ConciliationExportFilesResource;
