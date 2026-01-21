@@ -25,6 +25,8 @@ const baas_get_account_1 = require("./resources/baas-get-account/baas-get-accoun
 const baas_get_all_accounts_1 = require("./resources/baas-get-all-accounts/baas-get-all-accounts");
 const pix_get_participants_1 = require("./resources/pix-get-participants/pix-get-participants");
 const pix_create_qrcode_dynamic_1 = require("./resources/pix-create-qrcode-dynamic/pix-create-qrcode-dynamic");
+const pix_search_qrcode_dynamic_resource_1 = require("./resources/pix-search-qrcode-dynamic/pix-search-qrcode-dynamic.resource");
+const pix_cancel_qrcode_dynamic_resource_1 = require("./resources/pix-cancel-qrcode-dynamic/pix-cancel-qrcode-dynamic.resource");
 const baas_consult_pix_key_1 = require("./resources/baas-consult-pix-key/baas-consult-pix-key");
 const baas_verify_account_status_1 = require("./resources/baas-verify-account-status/baas-verify-account-status");
 const baas_consult_external_pix_key_1 = require("./resources/baas-consult-external-pix/baas-consult-external-pix-key");
@@ -87,6 +89,14 @@ class Client {
     static async PixCreateQRCodeDynamic(token, params) {
         const pixCreateQRCodeDynamicResource = await pix_create_qrcode_dynamic_1.PixCreateQRCodeDynamicResource.initiate(token, params);
         return pixCreateQRCodeDynamicResource;
+    }
+    static async PixSearchQRCodeDynamic(token, params) {
+        const pixSearchQRCodeDynamicResource = await pix_search_qrcode_dynamic_resource_1.PixSearchQRCodeDynamicResource.search(token, params);
+        return pixSearchQRCodeDynamicResource;
+    }
+    static async PixCancelQRCodeDynamic(token, transactionId) {
+        const pixCancelQRCodeDynamicResource = await pix_cancel_qrcode_dynamic_resource_1.PixCancelQRCodeDynamicResource.cancel(token, transactionId);
+        return pixCancelQRCodeDynamicResource;
     }
     static async PixCreateQRCodeStatic(token, params) {
         return await pix_create_qrcode_static_1.PixCreateQRCodeStaticResource.initiate(token, params);

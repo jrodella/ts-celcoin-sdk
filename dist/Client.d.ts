@@ -20,6 +20,7 @@ import { ConciliationExportFilesParams } from './resources/conciliation/export-f
 import { BaasGetAccountParams } from './resources/baas-get-account/baas-get-account';
 import { BaasGetAllAccountsParams } from './resources/baas-get-all-accounts/baas-get-all-accounts';
 import { PixCreateQRCodeDynamicParams } from './resources/pix-create-qrcode-dynamic/pix-create-qrcode-dynamic';
+import { PixSearchQRCodeDynamicParams } from './resources/pix-search-qrcode-dynamic/pix-search-qrcode-dynamic.resource';
 import { BaasConsultPixKeyParams } from './resources/baas-consult-pix-key/baas-consult-pix-key';
 import { BaasVerifyAccountStatusParams } from './resources/baas-verify-account-status/baas-verify-account-status';
 import { BaasConsultExternalPixKeyParams } from './resources/baas-consult-external-pix/baas-consult-external-pix-key';
@@ -53,6 +54,8 @@ export declare class Client {
     static ConciliationExportFiles(token: string, params: ConciliationExportFilesParams): Promise<any>;
     static PixCreateCollection(token: string, params: PixCreateCollectionParams): Promise<any>;
     static PixCreateQRCodeDynamic(token: string, params: PixCreateQRCodeDynamicParams): Promise<any>;
+    static PixSearchQRCodeDynamic(token: string, params: PixSearchQRCodeDynamicParams): Promise<any>;
+    static PixCancelQRCodeDynamic(token: string, transactionId: string): Promise<any>;
     static PixCreateQRCodeStatic(token: string, params: PixCreateQRCodeStaticParams): Promise<AxiosResponse<PixCreateQRCodeStaticResponse, any>>;
     static PixGetParticipants(token: string): Promise<any>;
     static PixGetWebhooksByEvent(token: string, params: PixGetWebhooksByEventParams): Promise<any>;
