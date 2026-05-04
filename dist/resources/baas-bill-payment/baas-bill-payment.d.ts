@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 
 // Tipos para Authorize
 export interface BarCodeAuthInfo {
-    type: number;
+    type: number | string;
     digitable?: string;
     barCode?: string;
 }
@@ -41,7 +41,7 @@ export interface BaasBillPaymentAuthorizeResponse {
 
 // Tipos para Payment
 export interface BarCodeInfo {
-    type?: number;
+    type?: number | string;
     digitable?: string;
     barCode?: string;
 }

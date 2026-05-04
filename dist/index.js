@@ -36,6 +36,12 @@ Object.keys(baas_webhooks).forEach(key => {
         Object.defineProperty(exports, key, { enumerable: true, get: function () { return baas_webhooks[key]; } });
     }
 });
+const baas_bill_payment = require("./resources/baas-bill-payment/baas-bill-payment");
+Object.keys(baas_bill_payment).forEach(key => {
+    if (key !== "default" && !exports.hasOwnProperty(key)) {
+        Object.defineProperty(exports, key, { enumerable: true, get: function () { return baas_bill_payment[key]; } });
+    }
+});
 const baas_pix_cashout_emv = require("./resources/baas-pix-cashout-emv/baas-pix-cashout-emv.resource");
 Object.keys(baas_pix_cashout_emv).forEach(key => {
     if (key !== "default" && !exports.hasOwnProperty(key)) {

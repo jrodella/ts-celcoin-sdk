@@ -38,10 +38,12 @@ import { BaasPixDictClaimParams, BaasPixDictClaimResponse } from './resources/ba
 import { BaasPixDictCancelClaimParams, BaasPixDictCancelClaimResponse } from './resources/baas/baas-pix-dict-cancel-claim/baas-pix-dict-cancel-claim.resource';
 import { BaasTransactionCreateParams } from './resources/baas-transaction-create/baas-transaction-create';
 import { BaasGetPixStatusParams } from './resources/baas/baas-get-pix-status/baas-get-pix-status.resource';
-import { BaasBillPaymentParams, BaasBillPaymentResponse } from './resources/baas-bill-payment/baas-bill-payment';
+import { BaasBillPaymentAuthorizeParams, BaasBillPaymentAuthorizeResponse, BaasBillPaymentParams, BaasBillPaymentResponse, BaasBillPaymentStatusParams } from './resources/baas-bill-payment/baas-bill-payment';
 import { BaasGetBalanceParams, BaasGetBalanceResponse } from './resources/baas-get-balance/baas-get-balance';
-import { BaasBillPaymentAuthorizeParams, BaasBillPaymentAuthorizeResponse } from './resources/baas-bill-payment/baas-bill-payment-authorize';
 import { BaasPixCashoutEmvParams, BaasPixCashoutEmvResponse } from './resources/baas-pix-cashout-emv/baas-pix-cashout-emv.resource';
+import { BaasBilletCreateParams, BaasBilletGetParams, BaasBilletResponse } from './resources/baas-billet/baas-billet.resource';
+import { BaasAccountResponse, BaasUpdateBusinessParams, BaasUpdateNaturalPersonParams } from './resources/baas-account-manager/baas-account-manager.resource';
+import { BaasWebhookEditParams, BaasWebhookEntity, BaasWebhookRegisterParams, BaasWebhookResponse } from './resources/baas-webhooks/baas-webhooks.resource';
 
 export declare class Client {
     static createAuthToken(): Promise<AuthDto>;
@@ -86,6 +88,7 @@ export declare class Client {
     static BaasTransactionCreate(token: string, params: BaasTransactionCreateParams): Promise<any>;
     static BaasGetPixStatus(token: string, params: BaasGetPixStatusParams): Promise<any>;
     static BaasBillPayment(token: string, params: BaasBillPaymentParams): Promise<AxiosResponse<BaasBillPaymentResponse, any>>;
+    static BaasBillPaymentStatus(token: string, params: BaasBillPaymentStatusParams): Promise<AxiosResponse<BaasBillPaymentResponse, any>>;
     static BaasGetBalance(token: string, params: BaasGetBalanceParams): Promise<AxiosResponse<BaasGetBalanceResponse, any>>;
     static BaasBilletCreate(token: string, params: BaasBilletCreateParams): Promise<BaasBilletResponse>;
     static BaasBilletGet(token: string, params: BaasBilletGetParams): Promise<BaasBilletResponse>;
